@@ -377,7 +377,7 @@
      (defadvice elscreen-create (around e2wm:ad-override-els)
        (let (default-wcfg)
          (when (e2wm:managed-p)
-           (loop for screen in (reverse (sort (elscreen-get-screen-list) '<))
+           (cl-loop for screen in (reverse (sort (elscreen-get-screen-list) '<))
                  for alst = (cdr (assq 'e2wm-frame-prop
                                        (elscreen-get-screen-property screen)))
                  for wcfg = (and alst (cdr (assq 'e2wm-save-window-configuration alst)))
@@ -387,12 +387,12 @@
          (when default-wcfg
            (set-window-configuration default-wcfg))))
      (defadvice elscreen-run-screen-update-hook (around e2wm:ad-override-els)
-       (flet ((e2wm:managed-p () nil))
+       (cl-flet ((e2wm:managed-p () nil))
          ad-do-it
          ))
 
      ;; apply defadvices to some elscreen functions
-     (loop for i in '(elscreen-goto
+     (cl-loop for i in '(elscreen-goto
                       elscreen-kill
                       elscreen-clone
                       elscreen-swap)
