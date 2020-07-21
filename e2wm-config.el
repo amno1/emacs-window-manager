@@ -1,4 +1,4 @@
-;;; e2wm-config.el --- e2wm configuration
+;;; e2wm-config.el --- e2wm configuration   -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2010, 2011  SAKURAI Masashi
 
@@ -24,8 +24,9 @@
 ;; sample configuration
 ;; コメントアウトされているものはデフォルトの設定
 
+(eval-when-compile (require 'cl-lib)) 
 ;;; Code:
-
+(require 'woman)
 (setq woman-use-own-frame nil) ; womanで新規フレームを開かせない
 
 ;; (setq e2wm:prefix-key "C-c ; ")
@@ -225,7 +226,7 @@
 ;; 乗っ取りを止めることが出来るが、外部プロセスの入力によって
 ;; follow-modeの位置がずれていくことがあるかもしれない。
 
-(setq follow-intercept-processes nil)
+;;(setq follow-intercept-processes nil)
 
 ;; 対策(2)
 ;; follow-intercept-processes を nil にしたくない場合は、以下のように
