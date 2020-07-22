@@ -608,7 +608,7 @@ The current implementation check the buffer name. TODO: improve the internal sig
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; ### Perspective Framework
 
-(defvar e2wm:pst-list nil "[internal] Perspective class registory.")
+(defvar e2wm:pst-list nil "[internal] Perspective class registry.")
 (setq e2wm:pst-list nil)
 
 (defvar e2wm:prev-selected-buffer nil
@@ -3671,9 +3671,9 @@ Do not select the buffer."
                         finally return (cons cols rows)))
        (loop-cols (cols y mx)
                   (cl-loop for i from y to (min (1+ y) mx)
-                        if (<= num (* i y))
-                        return (cons i y)
-                        finally return nil)))
+                           if (<= num (* i y))
+                           return (cons i y)
+                           finally return nil)))
     (loop-rows e2wm:c-array-max-cols
                e2wm:c-array-max-rows)))
 

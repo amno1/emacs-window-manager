@@ -394,9 +394,9 @@
 
      ;; apply defadvices to some elscreen functions
      (cl-loop for i in '(elscreen-goto
-                      elscreen-kill
-                      elscreen-clone
-                      elscreen-swap)
+                         elscreen-kill
+                         elscreen-clone
+                         elscreen-swap)
            do (e2wm:elscreen-define-advice i))
      (defun e2wm:elscreen-override ()
        (ad-activate-regexp "^e2wm:ad-override-els$")
